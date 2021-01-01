@@ -11,4 +11,5 @@ export const getLocationData = async (input) => {
     );
     updatedInput[index].address = result.data.items[0].address.label;
   }
+  return updatedInput;
 };
