@@ -1,0 +1,35 @@
+.members {
+  display: flex;
+  width: 100%;
+}
+
+.message {
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.members ul {
+  list-style: none;
+  margin: auto;
+  padding-inline-start: 0;
+}
+
+.members ul li {
+  list-style: none;
+  padding: 30px 50px;
+  margin: 30px;
+  border-radius: 15px;
+  font-size: 25px;
+  background: #c5c5c5;
+}
+
+.list-item__name {
+  margin: 10px;
+  font-weight: bolder;
+  margin-left: 0;
+}
+.list-item__address {
+  font-size: 20px;
+  color: #424241;
+}
