@@ -1,0 +1,30 @@
+header {
+  height: 60px;
+  background: #424242;
+  display: flex;
+}
+
+.nav-bar {
+  flex: 1;
+  display: flex;
+}
+.nav-bar__item {
+  background: #424242;
+  color: white;
+  flex: 1;
+  font-size: 20px;
+  display: flex;
+}
+
+.nav-bar__item:hover {
+  background: white;
+  color: #424242;
+  flex: 1;
+  cursor: pointer;
+  border: 2px solid #424242;
+}
+
+.nav-bar__item label {
+  margin: auto;
+  font-weight: bold;
+}
