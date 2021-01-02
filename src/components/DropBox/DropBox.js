@@ -8,18 +8,17 @@ const DropBox = ({ setList, setSection }) => {
     e.preventDefault();
 
     const files = e.dataTransfer.files;
-    console.log("HEREE", files);
     var fr = new FileReader();
 
     fr.onload = function (e) {
       var result = JSON.parse(e.target.result);
+      console.log("YESMAN", result);
       getLocationData(result).then((res) => {
         setList(res);
         setSection(Sections.List);
       });
     };
 
-    console.log("HEREE", files[0]);
     fr.readAsText(files[0]);
   };
 
