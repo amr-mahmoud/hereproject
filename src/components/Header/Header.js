@@ -1,11 +1,12 @@
 import React from "react";
-import { Sections } from "../../constants/constants";
+// import { Sections } from "../../constants/constants";
 import "./Header.css";
 
 const Header = ({ setSection }) => {
   const listOnClickHandler = (section) => {
     setSection(section);
   };
+  const Sections = { List: "List", upload: "upload", Map: "Map" };
 
   return (
     <header>

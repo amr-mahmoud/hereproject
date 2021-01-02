@@ -8,6 +8,7 @@ const DropBox = ({ setList, setSection }) => {
     e.preventDefault();
 
     const files = e.dataTransfer.files;
+    console.log("HEREE", files);
     var fr = new FileReader();
 
     fr.onload = function (e) {
@@ -17,7 +18,9 @@ const DropBox = ({ setList, setSection }) => {
         setSection(Sections.List);
       });
     };
-    fr.readAsText(files.item(0));
+
+    console.log("HEREE", files[0]);
+    fr.readAsText(files[0]);
   };
 
   const dragOver = (e) => {
