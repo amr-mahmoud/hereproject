@@ -10,8 +10,9 @@ const Header = ({ setSection }) => {
   return (
     <header>
       <div className="nav-bar">
-        {Object.values(Sections).map((section) => (
+        {Object.values(Sections).map((section, index) => (
           <div
+            key={index}
             className="nav-bar__item"
             onClick={() => listOnClickHandler(section)}
           >

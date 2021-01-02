@@ -29,12 +29,12 @@ export const DisplayMapFC = ({ list }) => {
           lat: member.Latitude,
           lng: member.Longitude,
         });
-        hMap.addObject(marker);
+        return hMap.addObject(marker);
       });
     }
-
+    // eslint-disable-next-line
     const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
-
+    // eslint-disable-next-line
     const ui = H.ui.UI.createDefault(hMap, defaultLayers);
 
     // This will act as a cleanup to run once this hook runs again.
@@ -42,7 +42,7 @@ export const DisplayMapFC = ({ list }) => {
     return () => {
       hMap.dispose();
     };
-  }, [mapRef]); // This will run this hook every time this ref is updated
+  }, [mapRef, list]); // This will run this hook every time this ref is updated
 
   return (
     <div

@@ -8,16 +8,19 @@ import { Sections } from "./constants/constants";
 
 const App = () => {
   const [list, setList] = useState([]);
-  const [section, setSection] = useState(Sections.Map);
+  const [section, setSection] = useState(Sections.upload);
 
-  console.log("List", list);
   return (
     <div className="App">
       <Header setSection={setSection} />
       <main>
-        {section === Sections.Map && <DisplayMapFC list={list} />}
-        {section === Sections.List && <MembersList list={list} />}
-        {section === Sections.upload && <DropBox setList={setList} />}
+        {section === Sections.Map ? (
+          <DisplayMapFC list={list} />
+        ) : section === Sections.List ? (
+          <MembersList list={list} />
+        ) : (
+          <DropBox setSection={setSection} setList={setList} />
+        )}
       </main>
       <footer>Thank you</footer>
     </div>

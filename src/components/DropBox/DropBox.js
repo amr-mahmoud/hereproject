@@ -1,8 +1,9 @@
 import React from "react";
 import { getLocationData } from "../../actions/locationApi";
+import { Sections } from "../../constants/constants";
 import "./DropBox.css";
 
-const DropBox = ({ setList }) => {
+const DropBox = ({ setList, setSection }) => {
   const fileDrop = (e) => {
     e.preventDefault();
 
@@ -11,7 +12,10 @@ const DropBox = ({ setList }) => {
 
     fr.onload = function (e) {
       var result = JSON.parse(e.target.result);
-      getLocationData(result).then((res) => setList(res));
+      getLocationData(result).then((res) => {
+        setList(res);
+        setSection(Sections.List);
+      });
     };
     fr.readAsText(files.item(0));
   };
