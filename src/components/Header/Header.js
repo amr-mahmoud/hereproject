@@ -3,24 +3,21 @@ import { Sections } from "../../constants/constants";
 import "./Header.css";
 
 const Header = ({ setSection }) => {
-  const listOnClickHandler = () => {
-    setSection(Sections.membersList);
-  };
-
-  const UploadOnClickHandler = () => {
-    setSection(Sections.upload);
+  const listOnClickHandler = (section) => {
+    setSection(section);
   };
 
   return (
     <header>
       <div className="nav-bar">
-        <div className="nav-bar__item" onClick={() => listOnClickHandler()}>
-          <label>List</label>
-        </div>
-
-        <div className="nav-bar__item" onClick={() => UploadOnClickHandler()}>
-          <label>Upload</label>
-        </div>
+        {Object.values(Sections).map((section) => (
+          <div
+            className="nav-bar__item"
+            onClick={() => listOnClickHandler(section)}
+          >
+            <label>{section}</label>
+          </div>
+        ))}
       </div>
     </header>
   );
