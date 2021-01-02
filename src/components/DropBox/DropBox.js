@@ -11,7 +11,7 @@ const DropBox = ({ setList }) => {
 
     fr.onload = function (e) {
       var result = JSON.parse(e.target.result);
-      getLocationData(result).then((res) => console.log(res));
+      getLocationData(result).then((res) => setList(res));
     };
     fr.readAsText(files.item(0));
   };
