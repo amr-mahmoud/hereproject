@@ -1,11 +1,11 @@
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import DropBox from "./DropBox";
-import { getLocationData } from "../../actions/locationApi";
+import { getLocationData } from "../../API/locationApi";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-jest.mock("../../actions/locationApi.js", () => ({
+jest.mock("../../API/locationApi.js", () => ({
   getLocationData: jest.fn().mockImplementation(() => "getLocationData"),
 }));
 
