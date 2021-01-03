@@ -2,11 +2,30 @@ import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import DropBox from "./DropBox";
 import { getLocationData } from "../../API/locationApi";
-
+import { Sections } from "../../constants/constants";
 Enzyme.configure({ adapter: new Adapter() });
 
+const objResolve = [
+  {
+    Name: "Arthur Arnold",
+    Latitude: 52.56222,
+    Longitude: 13.35125,
+  },
+  {
+    Name: "Ludwig Otto",
+    Latitude: 52.56526,
+    Longitude: 13.41645,
+  },
+  {
+    Name: "Pia Kaiser",
+    Latitude: 52.52003,
+    Longitude: 13.39533,
+  },
+];
 jest.mock("../../API/locationApi.js", () => ({
-  getLocationData: jest.fn().mockImplementation(() => "getLocationData"),
+  getLocationData: jest
+    .fn()
+    .mockImplementation(() => Promise.resolve(objResolve)),
 }));
 
 function blobToFile(theBlob, fileName) {
@@ -64,5 +83,7 @@ describe("DropBox tests", () => {
 
     expect(getLocationData).toHaveBeenCalled();
     expect(getLocationData).toHaveBeenCalledWith(obj);
+    expect(propsMock.setSection).toHaveBeenCalledWith(Sections.List);
+    expect(propsMock.setList).toHaveBeenCalledWith(objResolve);
   });
 });
