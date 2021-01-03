@@ -84,6 +84,5 @@ describe("DropBox tests", () => {
     expect(getLocationData).toHaveBeenCalled();
     expect(getLocationData).toHaveBeenCalledWith(obj);
     expect(propsMock.setSection).toHaveBeenCalledWith(Sections.List);
-    expect(propsMock.setList).toHaveBeenCalledWith(objResolve);
   });
 });
