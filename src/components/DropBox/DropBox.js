@@ -4,6 +4,12 @@ import { Sections } from "../../constants/constants";
 import "./DropBox.css";
 
 const DropBox = ({ setList, setSection }) => {
+  const processResult = async (data) => {
+    let result = await getLocationData(data);
+    setList(result);
+    setSection(Sections.List);
+  };
+
   const fileDrop = (e) => {
     e.preventDefault();
 
@@ -11,12 +17,8 @@ const DropBox = ({ setList, setSection }) => {
     var fr = new FileReader();
 
     fr.onload = function (e) {
-      var result = JSON.parse(e.target.result);
-      console.log("YESMAN", result);
-      getLocationData(result).then((res) => {
-        setList(res);
-        setSection(Sections.List);
-      });
+      var data = JSON.parse(e.target.result);
+      processResult(data);
     };
 
     fr.readAsText(files[0]);

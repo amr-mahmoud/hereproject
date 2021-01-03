@@ -2,7 +2,7 @@ import axios from "axios";
 
 const apiKey = "4CwEQaxA5OnFpekbxDT-I096-13RkgrY5tYxtZMnPWY";
 
-export const getLocationData = async (input) => {
+const getLocationData = async (input) => {
   let updatedInput = input;
   for (let index = 0; index < input.length; index++) {
     let data = [input[index].Latitude, input[index].Longitude];
@@ -13,3 +13,5 @@ export const getLocationData = async (input) => {
   }
   return updatedInput;
 };
+
+export { getLocationData };
