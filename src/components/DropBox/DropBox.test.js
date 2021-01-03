@@ -5,28 +5,6 @@ import { getLocationData } from "../../actions/locationApi";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const mockResolved = [
-  {
-    Name: "Arthur Arnold",
-    Latitude: 52.56222,
-    Longitude: 13.35125,
-    address: "berlin",
-  },
-  {
-    Name: "Ludwig Otto",
-    Latitude: 52.56526,
-    Longitude: 13.41645,
-    address: "cairo",
-  },
-
-  {
-    Name: "Pia Kaiser",
-    Latitude: 52.52003,
-    Longitude: 13.39533,
-    address: "cairo",
-  },
-];
-
 jest.mock("../../actions/locationApi.js", () => ({
   getLocationData: jest.fn().mockImplementation(() => "getLocationData"),
 }));
@@ -49,7 +27,7 @@ describe("DropBox tests", () => {
     jest.spyOn(e, "preventDefault");
     DropBoxWrapper = shallow(<DropBox {...propsMock} />);
   });
-  it("renders without crashing", async () => {
+  it("on Drop operation test sends data to Api", async () => {
     const obj = [
       {
         Name: "Arthur Arnold",
