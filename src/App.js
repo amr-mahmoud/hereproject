@@ -1,11 +1,11 @@
 import "./App.css";
 import React, { useState } from "react";
-import DropBox from "./components/DropBox/DropBox";
-import Header from "./components/Header/Header";
-import { DisplayMapFC } from "./components/DisplayMapFc/DisplayMapFc";
-import MembersList from "./components/MembersList/MembersList";
+// import DropBox from "./components/DropBox/DropBox";
+// import Header from "./components/Header/Header";
+// import { DisplayMapFC } from "./components/DisplayMapFc/DisplayMapFc";
+// import MembersList from "./components/MembersList/MembersList";
 import { Sections } from "./constants/constants";
-
+import { DropBox, Header, MembersList, DisplayMapFC } from "./components";
 const App = () => {
   const [list, setList] = useState([]);
   const [section, setSection] = useState(Sections.upload);
@@ -22,7 +22,7 @@ const App = () => {
           <DropBox setSection={setSection} setList={setList} />
         )}
       </main>
-      <footer>Thank you</footer>
+      <footer></footer>
     </div>
   );
 };

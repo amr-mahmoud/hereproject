@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getLocationData } from "../../actions/locationApi";
+import { getLocationData } from "../../API/locationApi";
 import { Sections } from "../../constants/constants";
 import "./DropBox.css";
 
